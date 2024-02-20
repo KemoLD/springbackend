@@ -1,17 +1,17 @@
 package com.kemold.springbackend.student;
 
-import java.time.LocalDate;
 import java.util.List;
 
-import org.springframework.stereotype.Service;
+public interface StudentService {
 
-@Service
-public class StudentService {
+    Student saveStudent(Student student);
 
-    public List<Student> findAllStudents() {
-        return List.of(
-                new Student("James", "Bond", 23, "james@gmail.com", LocalDate.now()),
-                new Student("Jeff", "Bezos", 19, "jeff@gmail.com", LocalDate.now()));
-    }
+    List<Student> findAllStudents();
+
+    Student findByEmail(String email);
+
+    void deleteStudent(String email);
+
+    Student updateStudent(String email, Student student);
 
 }

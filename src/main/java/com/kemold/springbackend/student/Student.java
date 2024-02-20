@@ -4,7 +4,6 @@ import java.time.LocalDate;
 
 public class Student {
 
-    private Integer studentId;
     private String firstName;
     private String lastName;
     private Integer age;
@@ -21,14 +20,6 @@ public class Student {
 
     public Student() {
 
-    }
-
-    public Integer getStudentId() {
-        return studentId;
-    }
-
-    public void setStudentId(Integer studentId) {
-        this.studentId = studentId;
     }
 
     public String getFirstName() {
@@ -74,7 +65,7 @@ public class Student {
     @Override
     public String toString() {
         return "Student [age=" + age + ", dateOfBirth=" + dateOfBirth + ", email=" + email + ", firstName=" + firstName
-                + ", lastName=" + lastName + ", studentId=" + studentId + "]";
+                + ", lastName=" + lastName + "]";
     }
 
     @Override
@@ -111,11 +102,6 @@ public class Student {
                 return false;
         } else if (!lastName.equals(other.lastName))
             return false;
-        if (studentId == null) {
-            if (other.studentId != null)
-                return false;
-        } else if (!studentId.equals(other.studentId))
-            return false;
         return true;
     }
 
@@ -128,7 +114,6 @@ public class Student {
         result = prime * result + ((email == null) ? 0 : email.hashCode());
         result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
         result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
-        result = prime * result + ((studentId == null) ? 0 : studentId.hashCode());
         return result;
     }
 
