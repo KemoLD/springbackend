@@ -1,13 +1,30 @@
 package com.kemold.springbackend.student;
 
 import java.time.LocalDate;
+import java.time.Period;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
+
+@Entity
+@Table(name = "student")
 public class Student {
+
+    @Id
+    private Integer id;
 
     private String firstName;
     private String lastName;
+
+    @Transient
     private Integer age;
+
+    @Column(unique = true)
     private String email;
+
     private LocalDate dateOfBirth;
 
     public Student(String firstName, String lastName, Integer age, String email, LocalDate dateOfBirth) {
@@ -20,6 +37,14 @@ public class Student {
 
     public Student() {
 
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getFirstName() {
@@ -39,7 +64,7 @@ public class Student {
     }
 
     public Integer getAge() {
-        return age;
+        return Period.between(this.dateOfBirth, LocalDate.now()).getYears();
     }
 
     public void setAge(Integer age) {
